@@ -129,9 +129,7 @@ class App:
 
             # move to the next slice
             x += dx
-
-        self.drawing_canvas.wdraw_axes('yellow')
-
+            
     def insertion(self):
         """ perform the integration """
         self.insertion_button['state'] = tk.DISABLED
