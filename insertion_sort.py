@@ -46,17 +46,6 @@ class DrawingCanvas():
     def clear(self):
         self.canvas.delete(tk.ALL)
 
-    def wdraw_line(self, wx0, wy0, wx1, wy1, color, arrow):
-        """ Draw a line in world coordinates """
-        dx0, dy0 = self.w_to_d(wx0, wy0)
-        dx1, dy1 = self.w_to_d(wx1, wy1)
-        self.canvas.create_line(dx0, dy0, dx1, dy1, fill=color, arrow=arrow)
-
-    def wdraw_axes(self, color):
-        """ Draw coordinate axes """
-        self.set_scales()
-        self.wdraw_line(self.wxmin, 0, self.wxmax, 0, color, arrow=tk.BOTH)
-
     def rectangle(self, wx0, wy0, wx1, wy1, fill, outline):
         """ Draw a rectangle at the indicated position in world coordinates """
         dx0, dy0 = self.w_to_d(wx0, wy0)
@@ -116,10 +105,6 @@ class App:
         self.wymax = 100
         self.drawing_canvas = DrawingCanvas(self.canvas, self.wxmin, self.wymin, self.wxmax, self.wymax, 0, True)
 
-        # bind some keys
-        self.window.bind('<Return>', (lambda e, b=self.insertion_button: self.insertion_button.invoke()))
-
-        # Alt+F4 closes this window not python shell
         self.intervals_entry.focus_force()
         self.window.mainloop()
 
