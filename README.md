@@ -1,5 +1,5 @@
 # Sorting-Visualizer
 Visualize sorting algorithms with python tkinter
 
-### Available Algorithms so far:
+### Implemented algorithms so far:
 * Insertion sort
